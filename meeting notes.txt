@@ -1,0 +1,11 @@
+1- science - to find AQI, which main pollutants I need
+2- Phir mny unko download kahan s krna hai
+3- Phir mny unko process kese krna hai - for DL model
+4- Model bnana hai
+5- and then inference
+6- dunya mein kya tareeqa ho rha hai setallite s AQI nikalny ka
+7- log historical data p kaam kr rhy hein, or hmny kaam krna hai realtime data p
+8- i have an example: kal office k bhr aag lgi, or usk ps koi station nhi hai. Toh hmny dekkhna hai k agr whan s satellite gzra, so pollutants ki value extract kr skein k kiski wjh s aag lgi
+
+ead air quality
+sdk javascript

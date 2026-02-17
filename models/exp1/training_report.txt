@@ -1,0 +1,66 @@
+AQI ML MODEL TRAINING REPORT
+======================================================================
+
+DATASET
+----------------------------------------------------------------------
+Total samples: 21,840
+Training:      15,288 (70.0%)
+Validation:    3,276 (15.0%)
+Test:          3,276 (15.0%)
+Features:      23
+
+PM2.5 MODEL PERFORMANCE
+----------------------------------------------------------------------
+Validation R²:   0.4804
+Validation RMSE: 16.14 µg/m³
+Validation MAE:  10.56 µg/m³
+Test R²:         0.4490
+Test RMSE:       16.89 µg/m³
+Test MAE:        10.77 µg/m³
+
+PM2.5 TOP 10 FEATURES
+----------------------------------------------------------------------
+   1. T2M                  0.1036
+   2. TempCelsius          0.1023
+   3. Latitude             0.0860
+   4. BLH                  0.0710
+   5. NO2_AOD              0.0674
+   6. DayOfYear            0.0641
+   7. D2M                  0.0550
+   8. SP                   0.0518
+   9. AOD_Temp             0.0506
+  10. NO2                  0.0458
+
+PM10 MODEL PERFORMANCE
+----------------------------------------------------------------------
+Validation R²:   0.5690
+Validation RMSE: 46.38 µg/m³
+Validation MAE:  30.83 µg/m³
+Test R²:         0.5471
+Test RMSE:       48.67 µg/m³
+Test MAE:        31.07 µg/m³
+
+PM10 TOP 10 FEATURES
+----------------------------------------------------------------------
+   1. AOD_Temp             0.1483
+   2. Longitude            0.0895
+   3. DayOfYear            0.0779
+   4. T2M                  0.0765
+   5. TempCelsius          0.0756
+   6. V10                  0.0509
+   7. BLH                  0.0503
+   8. WindSpeed            0.0494
+   9. SP                   0.0454
+  10. U10                  0.0453
+
+OUTPUT FILES
+----------------------------------------------------------------------
+  • pm25_rf_model.pkl
+  • pm10_rf_model.pkl
+  • test_set_results.csv (test data + predictions)
+  • plots/pm25_predictions_val.png
+  • plots/pm25_predictions_test.png
+  • plots/pm25_feature_importance.png
+  • plots/pm10_predictions_val.png
+  • plots/pm10_predictions_test.png
+  • plots/pm10_feature_importance.png

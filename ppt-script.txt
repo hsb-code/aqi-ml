@@ -1,0 +1,43 @@
+Slide 1:
+Good morning everyone. Today I'm presenting a proposed enhancement to our Air Quality Index system using machine learning. This is a low-risk, high-reward upgrade that will improve our PM2.5 and PM10 prediction accuracy by 15-25% with low budget requirements.
+
+slide2:
+Our current system uses a simple linear regression - essentially one equation that doesn't account for weather or seasonal changes. This results in significant errors, especially during dust storms or high humidity days. We can do better.
+
+slide 3:
+We're proposing Random Forest machine learning, which uses 100-300 decision trees to learn complex patterns. This is not experimental - it's been validated in over 50 scientific studies worldwide. We expect 15-25% accuracy improvement.
+
+slide 4:
+Think of it like consulting 100 experts instead of following one simple rule. Each decision tree asks questions about the environment, and we average all their predictions. This captures complex patterns that a single equation misses.
+
+slide 5:
+Here's our end-to-end pipeline. We collect data from multiple sources, prepare and align it, extract relevant features, train the ML model, and deploy daily predictions. Each stage is automated and well-defined.
+
+slide 6:
+This is an example of satellite AOD data - you can see a major dust event in red/orange sweeping across the region. Our ML model learns to convert these AOD measurements into accurate ground-level PM predictions by accounting for weather conditions.
+
+slide 7:
+These are our conservative performance targets. We're committing to at least R² of 0.70-0.75, which represents a 15-25% accuracy improvement. Even in the worst case, we're significantly better than current performance.
+
+The 0.60 baseline is the standard performance metric for linear AOD-to-PM models in our region. Our internal validation code in Notebook 2 generates these statistics for every pixel, and they align with the expected accuracy for a system that doesn't yet account for weather variables like humidity and wind.
+
+slide 8:
+All data sources are confirmed available and completely free. No budget approval needed. We can use existing hardware. This is a zero-cost enhancement leveraging publicly available scientific data.
+
+slide 9:
+Based on similar studies, here's what drives predictions. AOD is still most important at 40%, but humidity, boundary layer height, and seasonal patterns add crucial context. This explains why simple AOD-only regression isn't enough.
+
+slide 10:
+We've identified and mitigated all major risks. Most importantly, if this doesn't work, we simply keep the current system. There's no downside - we're only adopting this if it clearly outperforms.
+
+slide 11:
+Here's the real impact - tighter clustering means more accurate predictions. Citizens and decision-makers can trust our AQI maps more, especially during challenging weather conditions.
+
+slide 12:
+This is what the final output looks like - a color-coded AQI map updated every 2 days. The improved accuracy means better public health guidance, especially for sensitive populations.
+
+slide 13:
+These are our non-negotiable success criteria. Clear, measurable, achievable. if we're not hitting these numbers, we have the discipline to revert. No sunk cost fallacy.
+
+slide 14:
+Thank you!

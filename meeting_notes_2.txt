@@ -1,0 +1,22 @@
+abu dhabi region wo boundary hai jism humn kaam krna hai
+mixed wala nhi - modis ka data - era5 ka data downloaded
+csv file - ground station ka data hai
+
+dates:
+2022 jan
+2024 dec
+
+PM10	PM2P5	O3	SO2	NO2	CO
+kiski zrurat hai kiski nhi
+
+1- download modis:
+- dates
+- region
+- or ye kya kya de rha
+- isko hum kese merge kr skty hein ground station k data k sath
+
+2- download er5
+
+3- modis (merged) (y) + er5 (x) > random forest
+
+Note: data validation check

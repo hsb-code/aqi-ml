@@ -1,0 +1,40 @@
+EXPERIMENT 2: IMPROVED ML MODELS
+======================================================================
+
+IMPROVEMENTS
+----------------------------------------------------------------------
+1. Hyperparameter tuning with GridSearchCV
+2. XGBoost algorithm
+3. Lag features (PM_lag1, rolling3, rolling7)
+4. Additional rolling features (AOD, NO2)
+
+DATASET
+----------------------------------------------------------------------
+Total samples: 21,840
+Features: 28 (up from 23 in exp1)
+
+PM2.5 BEST MODEL: XGBoost
+----------------------------------------------------------------------
+Validation R²:   0.5653
+Validation RMSE: 14.76 ug/m³
+Validation MAE:  9.36 ug/m³
+
+XGBoost Parameters:
+  colsample_bytree: 0.8
+  learning_rate: 0.05
+  max_depth: 10
+  n_estimators: 300
+  subsample: 1.0
+
+PM10 BEST MODEL: XGBoost
+----------------------------------------------------------------------
+Validation R²:   0.6489
+Validation RMSE: 41.86 ug/m³
+Validation MAE:  27.44 ug/m³
+
+XGBoost Parameters:
+  colsample_bytree: 0.8
+  learning_rate: 0.05
+  max_depth: 10
+  n_estimators: 300
+  subsample: 0.8
