@@ -1,0 +1,14 @@
+EXP 5 CATBOOST REPORT - 2026-02-24 14:35:58
+Trials per target: 50
+GPU: True
+--------------------------------------------------
+
+TARGET: PM25
+  Train: R2=0.8629, RMSE=8.27, MAE=5.93
+  Val  : R2=0.5976, RMSE=12.58, MAE=8.29
+  Test : R2=0.5338, RMSE=14.14, MAE=8.98
+
+TARGET: PM10
+  Train: R2=0.7933, RMSE=34.26, MAE=23.50
+  Val  : R2=0.6765, RMSE=33.86, MAE=22.11
+  Test : R2=0.5388, RMSE=38.82, MAE=24.50

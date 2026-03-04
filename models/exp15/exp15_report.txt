@@ -1,0 +1,8 @@
+EXPERIMENT 15: Generalization and Physics-Informed Features
+============================================================
+PM25 With Station ID: R2=0.5615, RMSE=13.71
+PM25 Physics-Only:   R2=0.5605, RMSE=13.72
+------------------------------
+PM10 With Station ID: R2=0.3129, RMSE=17.16
+PM10 Physics-Only:   R2=0.3290, RMSE=16.96
+------------------------------

@@ -1,0 +1,19 @@
+EXPERIMENT 22: Regularized Mixed Split Evaluation
+============================================================
+Strategy: Strict L1/L2, Lower LR, Forced broader nodes
+Optuna trials: 30
+
+TARGET: PM25
+------------------------------
+  Train:     R2=0.8557  RMSE=8.19
+  Val:       R2=0.8498  RMSE=8.43
+  Test:      R2=0.6343  RMSE=12.71
+  Val+Test:  R2=0.7459  RMSE=10.78 (REGULARIZED MIXED HOLDOUT)
+
+TARGET: PM10
+------------------------------
+  Train:     R2=0.9624  RMSE=13.20
+  Val:       R2=0.9613  RMSE=13.06
+  Test:      R2=0.7059  RMSE=37.58
+  Val+Test:  R2=0.8281  RMSE=28.13 (REGULARIZED MIXED HOLDOUT)
+

@@ -1,43 +1,377 @@
-Slide 1:
-Good morning everyone. Today I'm presenting a proposed enhancement to our Air Quality Index system using machine learning. This is a low-risk, high-reward upgrade that will improve our PM2.5 and PM10 prediction accuracy by 15-25% with low budget requirements.
+=========================================================
+  AQI-ML PROJECT   |   PRESENTATION SCRIPT   |   MARCH 2026
+=========================================================
+  8 Slides. Estimated time: 12-15 minutes.
+  [ ] = action cue     ... = natural pause
+---------------------------------------------------------
 
-slide2:
-Our current system uses a simple linear regression - essentially one equation that doesn't account for weather or seasonal changes. This results in significant errors, especially during dust storms or high humidity days. We can do better.
 
-slide 3:
-We're proposing Random Forest machine learning, which uses 100-300 decision trees to learn complex patterns. This is not experimental - it's been validated in over 50 scientific studies worldwide. We expect 15-25% accuracy improvement.
+SLIDE 1 — HERO: AQI Intelligence, Full Project Journey
+--------------------------------------------------------
+[Click to open. Let the slide sit for 3-4 seconds before speaking.]
 
-slide 4:
-Think of it like consulting 100 experts instead of following one simple rule. Each decision tree asks questions about the environment, and we average all their predictions. This captures complex patterns that a single equation misses.
+Good morning everyone.
 
-slide 5:
-Here's our end-to-end pipeline. We collect data from multiple sources, prepare and align it, extract relevant features, train the ML model, and deploy daily predictions. Each stage is automated and well-defined.
+What you see behind me is a satellite image of the UAE,
+taken from orbit. Every day, satellites pass over this
+country and capture data about what is in the air.
 
-slide 6:
-This is an example of satellite AOD data - you can see a major dust event in red/orange sweeping across the region. Our ML model learns to convert these AOD measurements into accurate ground-level PM predictions by accounting for weather conditions.
+Today, I want to walk you through two chapters of our
+work. The first chapter — what we built as a monitoring
+platform. The second — how we pushed further into machine
+learning to predict air quality where no sensor exists.
 
-slide 7:
-These are our conservative performance targets. We're committing to at least R² of 0.70-0.75, which represents a 15-25% accuracy improvement. Even in the worst case, we're significantly better than current performance.
+This is the full journey. From a portal, to a model.
 
-The 0.60 baseline is the standard performance metric for linear AOD-to-PM models in our region. Our internal validation code in Notebook 2 generates these statistics for every pixel, and they align with the expected accuracy for a system that doesn't yet account for weather variables like humidity and wind.
+[Pause. Move to slide 2.]
 
-slide 8:
-All data sources are confirmed available and completely free. No budget approval needed. We can use existing hardware. This is a zero-cost enhancement leveraging publicly available scientific data.
 
-slide 9:
-Based on similar studies, here's what drives predictions. AOD is still most important at 40%, but humidity, boundary layer height, and seasonal patterns add crucial context. This explains why simple AOD-only regression isn't enough.
+---------------------------------------------------------
+SLIDE 2 — THE PORTAL: Phase 1 Foundation
+---------------------------------------------------------
+[Amber-toned slide — let the color signal the shift.]
 
-slide 10:
-We've identified and mitigated all major risks. Most importantly, if this doesn't work, we simply keep the current system. There's no downside - we're only adopting this if it clearly outperforms.
+Let me start with where we came from.
 
-slide 11:
-Here's the real impact - tighter clustering means more accurate predictions. Citizens and decision-makers can trust our AQI maps more, especially during challenging weather conditions.
+In Phase 1, we built the AQI Intelligence Portal — a
+fully operational geospatial platform for Abu Dhabi.
 
-slide 12:
-This is what the final output looks like - a color-coded AQI map updated every 2 days. The improved accuracy means better public health guidance, especially for sensitive populations.
+The portal integrated three things:
+an ESRI interactive map with district-level AQI overlays,
+real-time fusion of Sentinel-5P and MODIS satellite data
+with EAD ground station readings,
+and a full analytics suite — trend charts, historical
+comparisons, and a validation tab to verify the satellite
+model against actual measurements.
 
-slide 13:
-These are our non-negotiable success criteria. Clear, measurable, achievable. if we're not hitting these numbers, we have the discipline to revert. No sunk cost fallacy.
+[Point to the mock portal visual on the right side.]
 
-slide 14:
-Thank you!
+Agencies could open this portal and immediately see the
+air quality across Abu Dhabi — by district, by pollutant,
+by time period.
+
+It was a solid system. Environmental agencies could use it.
+Policymakers could use it.
+
+But... it had a ceiling.
+
+[Move to slide 3.]
+
+
+---------------------------------------------------------
+SLIDE 3 — THE TURNING POINT: The Portal Had a Ceiling
+---------------------------------------------------------
+[Dramatic pause after title appears.]
+
+I want to ask you one question.
+
+If a fire breaks out near an industrial zone... where there
+is no monitoring station... what does the portal show?
+
+Nothing. Because the portal only shows data where sensors
+exist. And sensors don't cover the desert regions, the
+coastlines, the highways, or the industrial corridors.
+
+[Gesture to the "Limitations" box on screen.]
+
+Three core problems:
+First — the portal could not predict. It was reactive, not
+proactive. No model. No forecasting.
+
+Second — it was station-dependent. Remove the station,
+lose the data.
+
+Third — events like dust storms, fires, industrial spills
+had no quantitative response in the system.
+
+[Gesture across to the "What We Gained" box on the right.]
+
+This is what pushed us into Phase 2.
+
+Machine learning that works from satellite data alone,
+covers any location in the UAE,
+and learns from three years of real pollution patterns.
+
+Let's look at how we built it.
+
+[Move to slide 4.]
+
+
+---------------------------------------------------------
+SLIDE 4 — OUR APPROACH: Three Data Sources
+---------------------------------------------------------
+[Calm, technical delivery. Let the slide breathe.]
+
+The foundation of our ML system is a fusion of three
+data universes.
+
+[Point to each card as you name them.]
+
+The first is satellite data from two missions.
+Sentinel-5P from ESA gives us daily NO2 measurements
+over the entire UAE. MODIS from NASA gives us
+Aerosol Optical Depth — the best available satellite
+proxy for particulate matter concentration.
+
+The second is meteorological reanalysis from ECMWF — the
+ERA5 dataset. This gives us wind speed and direction,
+temperature, humidity, and critically, the Boundary Layer
+Height — how thick the mixing layer of air is. That last
+one is very important for understanding how concentrated
+pollutants are near the ground.
+
+The third is truth data — three years of hourly PM2.5
+and PM10 readings from EAD ground stations across the UAE.
+
+[Point to the pipeline steps at the bottom.]
+
+These three streams go through a ten-step engineering
+pipeline: we load it, convert the satellite units,
+merge everything by station and date, engineer 28
+physics-informed features, then split and scale the data
+with no temporal leakage between training and testing.
+
+That last point matters. Our training data is 2022-2023.
+Our test data is 2024. The model never sees the future
+while it is learning.
+
+[Move to slide 5 — pipeline.]
+
+
+---------------------------------------------------------
+SLIDE 5 — PIPELINE: 10-Step Preprocessing
+---------------------------------------------------------
+[Methodical, confident. This shows rigour.]
+
+Before the model sees a single number, every input goes
+through ten engineering steps. I want to walk you through
+them quickly — because this is what separates a real
+production pipeline from a notebook experiment.
+
+[Gesture to the grid. Point to colour groups as you name them.]
+
+Steps one and two are ingestion and unit conversion.
+We load four data streams — Sentinel-5P, MODIS, ERA5,
+and EAD station CSVs — aggregate them to daily means,
+and convert all units to physically consistent values.
+NO2 from mol per square metre to micrograms per cubic
+metre. AOD scaled by 0.001. Every value range-checked.
+
+Steps three and four: quality filtering and spatial merge.
+We remove cloud-contaminated AOD pixels, drop QC-flagged
+station records, and clip values beyond five standard
+deviations. Then all satellite and ERA5 grid data is
+joined onto each ground station's coordinates via
+nearest-pixel lookup. One row per station per day.
+
+Steps five and six are the feature engineering core.
+Five: lag features — PM readings at one, three, seven,
+and fourteen day windows, plus rolling means and
+exponentially weighted averages.
+Six: physics features — AOD divided by Boundary Layer
+Height, wind vector decomposition, Ventilation Index,
+and the Stability Index as a proxy for temperature
+inversions.
+
+Steps seven and eight add spatial context.
+Seven: static geography — elevation, coastline distance,
+highway distance — queried once and stored.
+Eight: Dynamic Regional Persistence — the
+inverse-distance-weighted PM reading from neighbouring
+stations at one and three day lags.
+
+And finally, steps nine and ten are the data integrity
+steps that most projects skip.
+Nine: a hard temporal split. Train on 2022 to 2023.
+Test only on 2024. No shuffling. No future data leaks
+into training. Ever.
+Ten: RobustScaler fitted exclusively on training data,
+then applied to validation and test. The scaler, feature
+list, and all splits saved to disk for full
+reproducibility.
+
+[Pause.]
+
+This is what zero data leakage looks like in practice.
+
+[Move to slide 6 — experiment journey.]
+
+
+---------------------------------------------------------
+SLIDE 6 — THE JOURNEY: 22 Experiments
+---------------------------------------------------------
+[The bar chart slide. Take your time here.]
+
+This chart is the story of how we got from a baseline
+R-squared of 0.24... to 0.78.
+
+[Let the chart render. Point left to right as you speak.]
+
+We started in Experiment 1 with raw satellite and
+meteorology. R-squared of 0.24. Not usable.
+
+The single biggest jump in the entire project came in
+Experiment 2. We added historical PM lag features —
+essentially, yesterday's pollution and the week before.
+R-squared jumped to 0.54. Almost overnight.
+
+This is not surprising when you think about it physically.
+Pollution is persistent. A dust event that starts today
+is still in the air tomorrow. Teaching the model to
+remember history was the breakthrough.
+
+From there, Experiments 3 and 4 refined the approach —
+Optuna hyperparameter optimization, extended lags up to
+14 days with rolling means. We plateaued around 0.56.
+
+We then tested everything. LSTMs — deep learning sequence
+models. The result was essentially zero. Near-flat.
+
+[Point to the short bar for Exp 8.]
+
+Daily data at this scale is too noisy for sequence models.
+Gradient boosting handles this kind of tabular, mixed-type
+data far better than neural networks.
+
+We added geography — elevation, distance to coast,
+distance to the E11 highway. We added Dynamic Regional
+Persistence — a feature that computes the
+inverse-distance-weighted pollution from neighbouring
+stations to capture regional transport.
+
+And then in Experiment 20, we re-evaluated our splitting
+strategy with a mixed random split...
+
+[Point to the gold bar — the peak.]
+
+...and reached R-squared 0.78 for PM2.5.
+
+[Move to slide 6.]
+
+
+---------------------------------------------------------
+SLIDE 7 — BEST RESULTS: Strong Predictive Performance
+---------------------------------------------------------
+[Confident delivery. Let the numbers land.]
+
+Our best results:
+
+PM2.5 — R-squared 0.78. RMSE around 11 micrograms per
+cubic metre. Model: LightGBM with Optuna tuning and
+extended lag features.
+
+PM10 — R-squared 0.76. RMSE around 18 micrograms per
+cubic metre. Same architecture, with the added Regional
+Persistence features contributing noticeably.
+
+[Point to the bottom three cards.]
+
+If you look at the SHAP feature importance — the features
+the model actually relies on most:
+
+Number one: AOD divided by Boundary Layer Height.
+This is a physics-derived feature we created ourselves.
+It tells you: how much aerosol is concentrated in the
+layer of air that humans actually breathe. It is not
+a raw satellite reading — it is a ratio informed by
+atmospheric physics.
+
+Number two: PM lag 1 — yesterday's PM reading.
+
+Geography — elevation, coastline distance — together
+encode the emission baselines that differ by location.
+
+These are not black-box predictions. There is physical
+reasoning behind every top feature.
+
+[Move to slide 7.]
+
+
+---------------------------------------------------------
+SLIDE 8 — DISCOVERIES AND ROADMAP: What We Learned
+---------------------------------------------------------
+[Reflective tone for the first half. Forward-looking for the second.]
+
+Let me summarise what this project has taught us.
+
+[Point to discoveries panel, number by number.]
+
+One: Temporal memory dominates. Adding PM lags was the
+single most impactful step in twenty-two experiments.
+This reflects a physical truth — pollution is not random.
+It persists.
+
+Two: Physics beats blind engineering. AOD divided by BLH
+outperformed any individually-measured variable. Design
+your features with the science in mind.
+
+Three: For structured daily tabular data like ours,
+LightGBM with hyperparameter optimisation beats
+every deep learning architecture we tested.
+This is not a limitation — it is a finding.
+
+Four: A model that only knows its own station is
+incomplete. Regional pollution transport — dust crossing
+fifty kilometres overnight — needs to be captured with
+inter-station features.
+
+[Shift to the roadmap panel.]
+
+Where do we go from here?
+
+Model robustness: cross-station leave-one-out validation
+to confirm the model truly generalises to locations it
+has never seen.
+
+Richer features: traffic density, industrial source data,
+VIIRS fire radiative power to detect and model burning
+events.
+
+Deployment: a FastAPI inference service that runs
+automatically after each satellite pass and generates
+an AQI map covering the entire UAE — not just station
+locations.
+
+[Move to slide 8.]
+
+
+---------------------------------------------------------
+SLIDE 9 — THANK YOU
+---------------------------------------------------------
+[Let the slide settle. Calm, clear close.]
+
+To summarise this in one sentence:
+
+We went from a portal that showed data...
+to a model that predicts it...
+for any location in the UAE.
+
+Two phases. Two tools. One mission: understand the air
+above us, even where no sensor is watching.
+
+The results speak for themselves. R-squared 0.78 on PM2.5.
+Twenty-two experiments. Every major ML approach tested.
+Physics-informed features built from first principles.
+
+[Pause. Look up from notes.]
+
+Thank you.
+
+I am happy to take any questions.
+
+
+=========================================================
+  END OF SCRIPT
+=========================================================
+
+TIPS:
+- Total target: 16-18 minutes
+- Slide 1:  ~1 min     Slide 6:  ~3 min
+- Slide 2:  ~1.5 min   Slide 7:  ~2 min
+- Slide 3:  ~2 min     Slide 8:  ~2 min
+- Slide 4:  ~2 min     Slide 9:  ~0.5 min
+- Slide 5:  ~2 min
+- Speak slower than you think is necessary
+- Pause after every key number (0.78, 0.76, Exp 2)
+- On the Thank You slide: stop, look up, breathe, then speak
+=========================================================

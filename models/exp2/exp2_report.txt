@@ -1,0 +1,26 @@
+EXPERIMENT 2 — LightGBM + Lag Features (Temporal Split)
+============================================================
+Train: 2022-01-01 to 2023-06-30  (8,332 rows)
+Val:   2023-07-01 to 2023-12-31  (3,085 rows)
+Test:  2024-01-01 to 2024-12-30  (5,459 rows)
+
+Base features: 21
+Lag features:  8   (PM25_lag1, PM10_lag1, PM25_roll3, PM10_roll3, PM25_roll7, PM10_roll7, AOD_roll3, NO2_roll3)
+Total features: 29
+
+PM25
+----------------------------------------
+  Train : R2=0.7862  RMSE=10.33  MAE=7.00
+  Val   : R2=0.5924  RMSE=12.66  MAE=8.46
+  Test  : R2=0.5357  RMSE=14.11  MAE=9.05
+
+PM10
+----------------------------------------
+  Train : R2=0.8511  RMSE=29.08  MAE=19.90
+  Val   : R2=0.6682  RMSE=34.29  MAE=22.04
+  Test  : R2=0.5290  RMSE=39.23  MAE=24.71
+
+
+Exp3 vs Exp4 comparison (Test set):
+  Exp3 PM25 R²=0.2356 | Exp4 PM25 see above
+  Exp3 PM10 R²=0.2607 | Exp4 PM10 see above

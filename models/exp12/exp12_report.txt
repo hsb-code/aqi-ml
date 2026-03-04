@@ -1,0 +1,12 @@
+EXPERIMENT 12: Seasonal Models
+==================================================
+TARGET: PM25
+  R2:   0.5524
+  RMSE: 13.85
+  MAE:  9.04
+
+TARGET: PM10
+  R2:   0.5412
+  RMSE: 38.76
+  MAE:  24.74
+

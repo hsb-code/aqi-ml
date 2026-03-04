@@ -1,0 +1,18 @@
+EXPERIMENT 20: Mixed (Random) Split Evaluation
+============================================================
+Optuna trials: 30
+
+TARGET: PM25
+------------------------------
+  Train:     R2=0.9845  RMSE=2.68
+  Val:       R2=0.9851  RMSE=2.65
+  Test:      R2=0.6490  RMSE=12.45
+  Val+Test:  R2=0.8229  RMSE=9.00 (MIXED HOLDOUT)
+
+TARGET: PM10
+------------------------------
+  Train:     R2=0.9681  RMSE=12.16
+  Val:       R2=0.9676  RMSE=11.96
+  Test:      R2=0.7098  RMSE=37.33
+  Val+Test:  R2=0.8331  RMSE=27.72 (MIXED HOLDOUT)
+

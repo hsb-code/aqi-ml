@@ -1,0 +1,12 @@
+EXPERIMENT 21: Generalization & Regularization
+============================================================
+TARGET: PM25
+------------------------------
+  MIXED SPLIT TEST R2:    0.5559
+  TEMPORAL SPLIT TEST R2: 0.3031
+
+TARGET: PM10
+------------------------------
+  MIXED SPLIT TEST R2:    0.7349
+  TEMPORAL SPLIT TEST R2: 0.3676
+

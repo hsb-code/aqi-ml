@@ -1,0 +1,5 @@
+EXPERIMENT 14b: Refined CNN-LSTM (PM25 only)
+========================================
+Lookback: 7
+R2:   0.1290
+RMSE: 19.45

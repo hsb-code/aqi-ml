@@ -1,0 +1,14 @@
+EXP 9 GEOSPATIAL REPORT - 2026-02-24 16:42:40
+Approach: LightGBM + 3-Nearest Neighbor Spatial Lags
+Trials: 50
+--------------------------------------------------
+
+TARGET: PM25
+  Test R2:   0.5594
+  Test RMSE: 13.86
+  Test MAE:  8.78
+
+TARGET: PM10
+  Test R2:   0.5526
+  Test RMSE: 38.46
+  Test MAE:  23.97

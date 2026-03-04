@@ -1,0 +1,14 @@
+EXP 6 REPORT - 2026-02-24 14:59:44
+Approach: LightGBM + log1p(target)
+Trials: 50
+--------------------------------------------------
+
+TARGET: PM25
+  Train: R2=0.6270, RMSE=13.64, MAE=8.28
+  Val  : R2=0.5785, RMSE=12.87, MAE=8.30
+  Test : R2=0.5305, RMSE=14.19, MAE=8.87
+
+TARGET: PM10
+  Train: R2=0.8368, RMSE=30.45, MAE=17.72
+  Val  : R2=0.6549, RMSE=34.97, MAE=22.04
+  Test : R2=0.5245, RMSE=39.41, MAE=24.02

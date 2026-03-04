@@ -1,0 +1,14 @@
+EXP 10 XGBOOST REPORT - 2026-02-24 17:00:22
+Approach: XGBoost + Extended Lags (Exp4 features)
+Trials: 50
+--------------------------------------------------
+
+TARGET: PM25
+  Test R2:   0.5455
+  Test RMSE: 13.96
+  Test MAE:  8.90
+
+TARGET: PM10
+  Test R2:   0.5374
+  Test RMSE: 38.92
+  Test MAE:  24.50

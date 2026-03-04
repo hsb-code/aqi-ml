@@ -1,0 +1,19 @@
+EXP 7 ENSEMBLE REPORT - 2026-02-24 15:05:44
+Ensembling: LightGBM (Exp4) + CatBoost (Exp5)
+--------------------------------------------------
+
+TARGET: PM25
+  Optimal Weight (LGBM): 1.00
+  LGBM Test R2:      0.5599
+  CatBoost Test R2:  0.5338
+  Ensemble Test R2:  0.5599
+  Ensemble Test RMSE: 13.74
+  Ensemble Test MAE:  8.87
+
+TARGET: PM10
+  Optimal Weight (LGBM): 1.00
+  LGBM Test R2:      0.5605
+  CatBoost Test R2:  0.5388
+  Ensemble Test R2:  0.5605
+  Ensemble Test RMSE: 37.89
+  Ensemble Test MAE:  23.94

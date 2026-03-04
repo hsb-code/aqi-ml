@@ -1,0 +1,5 @@
+EXPERIMENT 19: Stacked Ensemble (LGBM + CB + XGB + Ridge)
+Enriched with Stability and Exposure Phys-Plus Features
+============================================================
+PM25 Stacked R2: 0.2465, RMSE: 17.97
+PM10 Stacked R2: 0.2676, RMSE: 48.97

@@ -1,0 +1,35 @@
+EXPERIMENT 4 — LightGBM + Extended Lag Features + Optuna + Station
+============================================================
+Optuna trials per target: 50
+Train: 2022-01-01 to 2023-06-30  (8,332 rows)
+Val:   2023-07-01 to 2023-12-31  (3,085 rows)
+Test:  2024-01-01 to 2024-12-30  (5,459 rows)
+
+Features: 42 (21 base + 20 lag + 1 station)
+
+New lag features vs Exp3:
+  + PM25_lag2, PM10_lag2  (2-day lag)
+  + PM25_lag3, PM10_lag3  (3-day lag)
+  + PM25_roll14, PM10_roll14  (14-day rolling mean)
+  + AOD_roll7, NO2_roll7  (7-day satellite rolling)
+  + PM25_ewm7, PM10_ewm7  (exponentially weighted, span=7)
+  + WindSpeed_roll3, T2M_roll3  (met persistence)
+
+PM25
+----------------------------------------
+  Train : R2=0.6865  RMSE=12.50  MAE=7.80
+  Val   : R2=0.7316  RMSE=10.27  MAE=6.85
+  Test  : R2=0.5599  RMSE=13.74  MAE=8.87
+
+PM10
+----------------------------------------
+  Train : R2=0.7666  RMSE=36.41  MAE=23.56
+  Val   : R2=0.7974  RMSE=26.79  MAE=18.13
+  Test  : R2=0.5605  RMSE=37.89  MAE=23.94
+
+
+Exp1 vs Exp2 vs Exp3 vs Exp4 (Test):
+  Exp1 PM25 R²=0.2356  PM10 R²=0.2607
+  Exp2 PM25 R²=0.5357  PM10 R²=0.5290
+  Exp3 PM25 R²=0.5531  PM10 R²=0.5547
+  Exp4 PM25 see above  PM10 see above

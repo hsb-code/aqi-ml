@@ -1,0 +1,26 @@
+EXPERIMENT 3 — LightGBM + Optuna Tuning + Station Category
+============================================================
+Optuna trials per target: 50
+Train: 2022-01-01 to 2023-06-30  (8,332 rows)
+Val:   2023-07-01 to 2023-12-31  (3,085 rows)
+Test:  2024-01-01 to 2024-12-30  (5,459 rows)
+
+Features: 30 (21 base + 8 lag + 1 station)
+
+PM25
+----------------------------------------
+  Train : R2=0.6762  RMSE=12.71  MAE=8.21
+  Val   : R2=0.7117  RMSE=10.65  MAE=7.19
+  Test  : R2=0.5531  RMSE=13.84  MAE=8.97
+
+PM10
+----------------------------------------
+  Train : R2=0.7176  RMSE=40.05  MAE=25.94
+  Val   : R2=0.7547  RMSE=29.48  MAE=19.63
+  Test  : R2=0.5547  RMSE=38.14  MAE=24.28
+
+
+Exp3 vs Exp4 vs Exp5 (Test):
+  Exp3 PM25 R²=0.2356  PM10 R²=0.2607
+  Exp4 PM25 R²=0.5357  PM10 R²=0.5290
+  Exp5 PM25 see above  PM10 see above

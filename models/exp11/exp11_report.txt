@@ -1,0 +1,12 @@
+EXPERIMENT 11: LightGBM + Static Geography
+==================================================
+TARGET: PM25
+  R2:   0.5593
+  RMSE: 13.74
+  MAE:  8.84
+
+TARGET: PM10
+  R2:   0.5536
+  RMSE: 38.23
+  MAE:  24.16
+

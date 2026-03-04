@@ -1,0 +1,4 @@
+EXPERIMENT 16: Dynamic Regional Persistence (DRP) & Advanced LUR
+============================================================
+PM25 R2: 0.2667, RMSE: 17.73
+PM10 R2: 0.2932, RMSE: 48.10

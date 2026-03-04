@@ -1,0 +1,14 @@
+EXP 8 LSTM REPORT - 2026-02-24 16:34:36
+Sequence Length: 7
+Best Params: {'hidden_dim': 245, 'num_layers': 1, 'dropout': 0.11862231209261961, 'lr': 0.008919364915035163}
+--------------------------------------------------
+
+TARGET: PM25
+  Test R2:   0.0278
+  Test RMSE: 20.57
+  Test MAE:  14.44
+
+TARGET: PM10
+  Test R2:   -0.0833
+  Test RMSE: 59.84
+  Test MAE:  42.98

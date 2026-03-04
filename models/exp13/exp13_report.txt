@@ -1,0 +1,12 @@
+EXPERIMENT 13: Advanced Stacking (LGBM + XGB + CB)
+==================================================
+TARGET: PM25
+  Final Stacker R2: 0.5428
+  RMSE: 14.00 | MAE: 9.03
+  Weights: LGBM=0.803, XGB=-0.296, CatBoost=0.501
+------------------------------
+TARGET: PM10
+  Final Stacker R2: 0.5088
+  RMSE: 40.10 | MAE: 25.09
+  Weights: LGBM=0.450, XGB=0.033, CatBoost=0.401
+------------------------------

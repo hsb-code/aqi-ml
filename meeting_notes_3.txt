@@ -1,0 +1,6 @@
+- hourly to per day (DONE)
+- duplication
+- data scaling and units
+- data processing
+- surface 1km x 1km
+- mai ye pipeline is liye bna rha hu k mujhe koi bnda kahy han bhai mujhe kal ki date ka aqi nikal k dy
